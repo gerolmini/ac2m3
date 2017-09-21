@@ -137,45 +137,49 @@
 		<p><span>Ejemplo:</span>flechaMedio("xaj<->bb"): true </p>
 
 
-			<?php
+			  <?php
 
-				function secuencia($arr){
+  $txt="a3d<->l44";
 
-					if($arr != ""){
+  echo $txt;
+  echo "<br><br>";
 
-						$i = count($arr)/2;
+  function BuscarCoincidenciaEnUnString($txt){
 
-						if($arr[$i]=="-"){
+    if($txt !="") {
+      $i = strlen($txt)/2;
+      $i = intval($i);
+      // encuentra la secuencia de caracteres en la mitad
+      if($txt[$i]=="-") {
+        $cadena = $i;
+        // más de 2 caracteres en la primera mitad
+      }elseif($txt[$i+1]=="-") {
+        $cadena =$i;
+        // más de 2 caracteres en la segunda mitad
+      }
 
-							$a = count($arr)/2;
+      elseif($txt[$i-1] == "-") {
+        $cadena = $i;
+      }else{
+        
+        return false;
+      }
 
-						}elseif($arr[$i+1]=="-"){
+      if($txt[$cadena-1] == "<" && $txt[$cadena+1] == ">"){
+        return true;
 
-							$a = count($arr)/2+1;
+      }else{
+        return false;
 
-						}elseif($cad[$i-1]=="-"){
-
-							$a= count($arr)/2-1;
-
-						}else{
-							return false;
-
-						}
-
-						if($arr[$a-1] === "<" && $cad[$a+1] === ">"){
-
-							return true;
-
-						}else{
-
-							return false;
-						}
-					}
-
-				}
+      }
+    }
+  }
+  echo "el resultado es: " .BuscarCoincidenciaEnUnString($txt);
 
 
-			?>
+
+
+  ?>
 
 			<table>
 				<tr>
